@@ -172,6 +172,8 @@ void setup(void) {
 
 	rfid_init();
 
+  homematic_init(); 
+
 	rfid_power_off();
 
 	storage_init();

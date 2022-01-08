@@ -13,8 +13,13 @@
 #define HM_PIN_OPEN	5
 #define HM_PIN_CLOSE	4
 
-#define HM_PIN_ACTIVE	HIGH
-#define HM_PIN_INACTIVE	LOW
+#define HM_PIN_ACTIVE	LOW
+#define HM_PIN_INACTIVE	HIGH
+
+/**
+ *
+ */
+void homematic_init(void);
 
 /**
  *
