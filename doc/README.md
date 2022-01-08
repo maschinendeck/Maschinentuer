@@ -2,16 +2,31 @@
 
 ### RJ45 Pinout ###
 
-  | Signal    | PIN | Color  | Color  | RaspiPin |  
-  +-----------+-----+--------+--------+----------+  
-  | GND       |  1  | violet | blue   |     6    |  
-  | VIN (5V)  |  2  | grey   | green  |     2    |  
-  | RX        |  3  | white  | yellow |     8    |  
-  | TX        |  4  | black  | orange |    10    |  
-  | DTR       |  5  | brown  |        |     X    |  
-  | CTS       |  6  | red    |        |     X    |  
-  | RST       |  7  | orange | red    |     7    |  
-  | VCC (3V3) |  8  | yellow | brown  |     1    |  
+  | Signal     | PIN | Color  | RaspiPin |  
+  +------------+-----+--------+----------+  
+  | GND        |  1  | brown  |     9    | 
+  | VIN (20V)  |  2  | red    |     X    | Step Up Output
+  | AVR_A/PI_Y |  3  |        |     X    | Bus Driver
+  | AVR_Y/PI_A |  4  |        |     X    | Bus Driver
+  | AVR_Z/PI_B |  5  |        |     X    | Bus Driver
+  | AVR_B/PI_Z |  6  |        |     X    | Bus Driver
+  | RST        |  7  | red    |     7    |  
+  | FTDI(3V3)  |  8  |        |     X    |  
+  
++ blk -> Raspi Pin 14 (20V GND)
+
+!!! Arduino Seite Layoutfehler - In aktueller Version funktioniert deshalb das Flashkabel nicht !!!
+
+### Pi Bus Driver ###
+
+Pin 1 = Pin 1 von Treiber IC
+  | Signal     | Bustreiber Pin | Color  | RaspiPin |  
+  +------------+----------------+--------+----------+  
+  | VCC (5V)   |  1             | green  |     2    |  
+  | RX         |  2             | orange |     10   |  
+  | TX         |  3             | yellow |     8    | Bus Driver
+  | GND        |  4             | blue   |     6    | Bus Driver
+
 
 ### Display Pinout ###
  source: [https://learn.adafruit.com/adafruit-led-backpack/0-54-alphanumeric]
@@ -32,7 +47,7 @@
  3. SPI-MOSI  (black)  D11		6.6
  4. SPI-MISO  (brown)  D12		6.5
  5. IRQ       (red)
- 6. GND       (orange) GND (MOSFET GND)	6.1
+ 6. GND       (orange) D7 (Enable)	6.1
  7. RST       (yellow) D8		6.3	
  8. VCC (3V3) (green)  VCC
 
@@ -53,7 +68,10 @@
  5. SPI-CS    (red)    D10
  6. VCC (3V3) (brown)  VCC
 
-### HM-Sender ###
- 2. Open               D4
- 3. Close              D5
-
+### Relayboard ###
+ 1. VCC					5V
+ 2. Reserve (Relay 4)	D2
+ 3. Reserve (Relay 3)	D3
+ 4. Open (Relay 2)		D4
+ 5. Close (Relay 1)		D5
+ 6. GND					GND
